@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "who_we_are": "Who We Are",
+    "gallery": "Gallery",
+    "quality": "Quality Compliance",
+    "legal": "Legal Documents",
+    "achievements": "Achievements",
+    "employment": "Employment Categories",
+    "clients": "Our Clients",
+    "recruitment": "Recruitment",
+    "contact": "Contact"
+  },
+  "common": {
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view_more": "View More",
+    "read_more": "Read More"
+  },
+  "home": {
+    "title": "Sandiya HR Management",
+    "description": "Professional HR recruitment and management services",
+    "hero_title": "Welcome to Sandiya HR",
+    "hero_subtitle": "Your trusted partner in human resource management",
+    "services": "Our Services",
+    "cta_button": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Learn more about Sandiya HR Management",
+    "who_heading": "Who We Are",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "values": "Our Values"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "View our gallery of events and achievements"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Get in touch with Sandiya HR",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you for your message. We'll get back to you soon.",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "recruitment": {
+    "title": "Recruitment",
+    "policy": "Recruitment Policy",
+    "process": "Our Process"
+  }
+}

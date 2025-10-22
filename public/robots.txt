@@ -1,0 +1,13 @@
+# Robots.txt for Sandiya HR
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.next/
+Disallow: /node_modules/
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://sandiyahrm.com/sitemap.xml
