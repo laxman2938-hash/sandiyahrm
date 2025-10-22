@@ -1,10 +1,6 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
-
 export default function PolicyPage() {
-  const t = useTranslations();
-  const locale = useLocale();
 
   const professionalPillars = [
     {
@@ -111,7 +107,7 @@ export default function PolicyPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
+  <section className="bg-linear-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">POLICY</h1>
           <p className="text-xl text-blue-100">
@@ -131,7 +127,7 @@ export default function PolicyPage() {
       </section>
 
       {/* Professional Pillars Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+  <section className="py-16 px-4 bg-linear-to-b from-blue-50 to-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-3xl font-bold mb-12 text-slate-900">Professional Pillars</h3>
 
@@ -142,7 +138,7 @@ export default function PolicyPage() {
                 className="bg-white border-l-4 border-blue-600 p-6 rounded-lg shadow-md hover:shadow-lg transition"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-blue-600 text-2xl font-bold flex-shrink-0 mt-1">•</span>
+                  <span className="text-blue-600 text-2xl font-bold shrink-0 mt-1">•</span>
                   <p className="text-slate-700 leading-relaxed text-lg">{pillar.point}</p>
                 </div>
               </div>
@@ -160,7 +156,7 @@ export default function PolicyPage() {
             {ethicalStandards.map((standard, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-br from-slate-50 to-blue-50 border border-blue-100 rounded-lg p-6 hover:shadow-lg transition"
+                className="bg-linear-to-br from-slate-50 to-blue-50 border border-blue-100 rounded-lg p-6 hover:shadow-lg transition"
               >
                 <h4 className="text-lg font-bold mb-3 text-slate-900 flex items-center gap-2">
                   <span className="text-blue-600 text-2xl">✓</span>
@@ -174,7 +170,7 @@ export default function PolicyPage() {
       </section>
 
       {/* Compliance Adherence Section */}
-      <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+  <section className="py-16 px-4 bg-linear-to-b from-blue-50 to-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-slate-900">We strictly adhere to below compliances</h2>
 

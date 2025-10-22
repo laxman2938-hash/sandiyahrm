@@ -1,14 +1,10 @@
 'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { DemandLetter } from '@/types';
 
 export default function ActiveDemandLetterPage() {
-  const t = useTranslations();
-  const locale = useLocale();
   const [demands, setDemands] = useState<DemandLetter[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +33,7 @@ export default function ActiveDemandLetterPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
+  <section className="bg-linear-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Active Demand Letters</h1>
           <p className="text-xl text-blue-100">
@@ -65,7 +61,7 @@ export default function ActiveDemandLetterPage() {
                         className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
+                      <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-blue-100 to-blue-200">
                         <div className="text-6xl">📄</div>
                       </div>
                     )}

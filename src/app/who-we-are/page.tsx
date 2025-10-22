@@ -1,7 +1,4 @@
-'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
-import Link from 'next/link';
+ 
 
 interface Mission {
   title: string;
@@ -9,9 +6,6 @@ interface Mission {
 }
 
 export default function WhoWeArePage() {
-  const t = useTranslations();
-  const locale = useLocale();
-
   const missions: Mission[] = [
     {
       title: 'Our Mission',
@@ -39,7 +33,7 @@ export default function WhoWeArePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
+      <section className="bg-linear-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Who We Are</h1>
           <p className="text-xl text-blue-100">
@@ -55,7 +49,7 @@ export default function WhoWeArePage() {
             {missions.map((mission, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-br from-blue-50 to-indigo-50 p-12 rounded-2xl border-l-4 border-blue-600 hover:shadow-lg transition"
+                className="bg-linear-to-br from-blue-50 to-indigo-50 p-12 rounded-2xl border-l-4 border-blue-600 hover:shadow-lg transition"
               >
                 <h3 className="text-2xl font-bold mb-4 text-blue-900">{mission.title}</h3>
                 <p className="text-slate-700 leading-relaxed">{mission.description}</p>
@@ -66,7 +60,7 @@ export default function WhoWeArePage() {
       </section>
 
       {/* About Us Content */}
-      <section className="py-24 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 px-4 bg-linear-to-b from-blue-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -81,7 +75,7 @@ export default function WhoWeArePage() {
                 Our mission is to connect the right people with the right opportunities, enabling individuals to reach their full potential while delivering outstanding results for organizations worldwide.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-12 text-white h-96 flex items-center justify-center hover:shadow-2xl transition">
+            <div className="bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl p-12 text-white h-96 flex items-center justify-center hover:shadow-2xl transition">
               <div className="text-center">
                 <div className="text-6xl mb-4">🌍</div>
                 <h3 className="text-2xl font-bold">Global Recruitment Leader</h3>
@@ -103,7 +97,7 @@ export default function WhoWeArePage() {
             {features.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-2xl border border-blue-100 hover:shadow-lg transition transform hover:-translate-y-1"
+                className="bg-linear-to-br from-slate-50 to-blue-50 p-8 rounded-2xl border border-blue-100 hover:shadow-lg transition transform hover:-translate-y-1"
               >
                 <div className="text-5xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-slate-900">{feature.title}</h3>

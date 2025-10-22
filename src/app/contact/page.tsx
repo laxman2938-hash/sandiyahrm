@@ -1,13 +1,9 @@
 'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { api } from '@/lib/api';
 import { ContactMessage } from '@/types';
 
 export default function ContactPage() {
-  const t = useTranslations();
-  const locale = useLocale();
   const [formData, setFormData] = useState<Omit<ContactMessage, 'id'>>({
     name: '',
     email: '',
@@ -41,9 +37,9 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white">
+  <main className="min-h-screen bg-linear-to-b from-white via-blue-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white py-12 md:py-20 px-4 relative overflow-hidden">
+  <section className="bg-linear-to-r from-blue-900 via-indigo-900 to-slate-900 text-white py-12 md:py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400 rounded-full filter blur-3xl"></div>
@@ -63,21 +59,21 @@ export default function ContactPage() {
       <section className="py-12 md:py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            <div className="group bg-gradient-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+            <div className="group bg-linear-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
               <div className="text-5xl sm:text-6xl mb-3 sm:mb-4 transform group-hover:scale-110 transition">📞</div>
               <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3 text-slate-900">Call Us</h3>
               <p className="text-slate-600 text-base sm:text-lg font-semibold mb-1">+977 014374161</p>
               <p className="text-slate-500 text-xs sm:text-sm">Sun - Fri 10:00 AM - 6:00 PM</p>
             </div>
 
-            <div className="group bg-gradient-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+            <div className="group bg-linear-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
               <div className="text-5xl sm:text-6xl mb-3 sm:mb-4 transform group-hover:scale-110 transition">✉️</div>
               <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3 text-slate-900">Email Us</h3>
               <p className="text-slate-600 text-base sm:text-lg font-semibold mb-1 break-all">sandiyahr17@gmail.com</p>
               <p className="text-slate-500 text-xs sm:text-sm">We'll respond within 24 hours</p>
             </div>
 
-            <div className="group bg-gradient-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+            <div className="group bg-linear-to-br from-slate-50 to-blue-50 p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-blue-100 text-center hover:shadow-xl transition transform hover:-translate-y-1">
               <div className="text-5xl sm:text-6xl mb-3 sm:mb-4 transform group-hover:scale-110 transition">📍</div>
               <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3 text-slate-900">Visit Us</h3>
               <p className="text-slate-600 text-base sm:text-lg font-semibold mb-1">Dhumbarahi, Kathmandu</p>
@@ -88,7 +84,7 @@ export default function ContactPage() {
       </section>
 
       {/* Google Map Section */}
-      <section className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-white to-blue-50">
+  <section className="py-12 sm:py-16 md:py-24 px-4 bg-linear-to-b from-white to-blue-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 text-slate-900">Find Us on the Map</h2>
@@ -113,11 +109,11 @@ export default function ContactPage() {
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">Office Hours</h3>
               <ul className="space-y-2 sm:space-y-3 text-slate-700 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold flex-shrink-0">•</span>
+                  <span className="text-blue-600 font-bold shrink-0">•</span>
                   <span><strong>Sunday - Friday:</strong> 10:00 AM - 6:00 PM</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold flex-shrink-0">•</span>
+                  <span className="text-blue-600 font-bold shrink-0">•</span>
                   <span><strong>Saturday:</strong> Closed</span>
                 </li>
               </ul>
@@ -127,7 +123,7 @@ export default function ContactPage() {
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900">Quick Links</h3>
               <ul className="space-y-2 sm:space-y-3 text-slate-700 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold flex-shrink-0">•</span>
+                  <span className="text-blue-600 font-bold shrink-0">•</span>
                   <a href="tel:+977014374161" className="hover:text-blue-600 transition break-all">+977 014374161</a>
                 </li>
                 <li className="flex items-start gap-3">
@@ -157,15 +153,15 @@ export default function ContactPage() {
             <div
               className={`p-6 rounded-2xl mb-8 text-lg font-semibold animate-pulse ${
                 message.type === 'success'
-                  ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border-2 border-green-300'
-                  : 'bg-gradient-to-r from-red-100 to-pink-100 text-red-800 border-2 border-red-300'
+                  ? 'bg-linear-to-r from-green-100 to-emerald-100 text-green-800 border-2 border-green-300'
+                  : 'bg-linear-to-r from-red-100 to-pink-100 text-red-800 border-2 border-red-300'
               }`}
             >
               {message.type === 'success' ? '✓ ' : '✗ '}{message.text}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white to-blue-50 p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl shadow-lg md:shadow-xl border border-blue-200">
+          <form onSubmit={handleSubmit} className="bg-linear-to-br from-white to-blue-50 p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl shadow-lg md:shadow-xl border border-blue-200">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
                 <label className="block text-xs sm:text-sm font-bold mb-2 sm:mb-3 text-slate-900 uppercase tracking-wide">Full Name *</label>
@@ -238,7 +234,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 transition transform hover:scale-105 active:scale-95 shadow-lg"
+              className="w-full bg-linear-to-r from-blue-600 to-indigo-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 transition transform hover:scale-105 active:scale-95 shadow-lg"
             >
               {loading ? 'Sending...' : 'Send Message'}
             </button>

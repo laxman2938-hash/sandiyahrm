@@ -1,6 +1,4 @@
 'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { EmploymentCategory } from '@/types';
@@ -8,8 +6,6 @@ import { getMultilingualText } from '@/lib/utils';
 import Link from 'next/link';
 
 export default function EmploymentCategoriesPage() {
-  const t = useTranslations();
-  const locale = useLocale();
   const [categories, setCategories] = useState<EmploymentCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +17,7 @@ export default function EmploymentCategoriesPage() {
         const response: any = await api.getEmploymentCategories();
         setCategories(Array.isArray(response) ? response : response.data?.results || response.data || []);
       } catch (err) {
-        setError(t('common.error'));
+        setError('Failed to load categories');
         console.error('Error fetching categories:', err);
       } finally {
         setLoading(false);
@@ -29,7 +25,7 @@ export default function EmploymentCategoriesPage() {
     };
 
     fetchCategories();
-  }, [t]);
+  }, []);
 
   if (loading) return (
     <div className="text-center py-20 md:py-40 text-xl md:text-2xl text-slate-600">
@@ -72,9 +68,9 @@ export default function EmploymentCategoriesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white">
+  <main className="min-h-screen bg-linear-to-b from-white via-blue-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
+  <section className="bg-linear-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
         </div>
@@ -104,18 +100,18 @@ export default function EmploymentCategoriesPage() {
                 style={{ animation: `slideInUp 0.6s ease-out ${idx * 0.1}s forwards`, opacity: 0 }}
               >
                 {/* Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50 group-hover:opacity-0 transition duration-300"></div>
-                <div className={`absolute inset-0 bg-gradient-to-br ${type.gradient} opacity-0 group-hover:opacity-100 transition duration-300`}></div>
+                <div className="absolute inset-0 bg-linear-to-br from-slate-50 to-blue-50 group-hover:opacity-0 transition duration-300"></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${type.gradient} opacity-0 group-hover:opacity-100 transition duration-300`}></div>
                 
                 {/* Content */}
                 <div className="relative p-4 md:p-8 rounded-xl md:rounded-2xl border border-blue-100 group-hover:border-transparent transition h-full flex flex-col">
                   <div className="text-4xl md:text-5xl mb-3 md:mb-4 transform group-hover:scale-125 transition">{type.icon}</div>
                   <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-slate-900 group-hover:text-white transition">{type.title}</h3>
-                  <p className="text-xs md:text-sm text-slate-700 group-hover:text-white/90 transition mb-4 md:mb-6 flex-grow">{type.description}</p>
+                  <p className="text-xs md:text-sm text-slate-700 group-hover:text-white/90 transition mb-4 md:mb-6 grow">{type.description}</p>
                   <div className="space-y-1 md:space-y-2">
                     {type.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs md:text-sm text-slate-700 group-hover:text-white/90 transition">
-                        <span className="text-blue-600 group-hover:text-white/70 mt-0.5 flex-shrink-0">✓</span>
+                        <span className="text-blue-600 group-hover:text-white/70 mt-0.5 shrink-0">✓</span>
                         <span>{feature}</span>
                       </div>
                     ))}

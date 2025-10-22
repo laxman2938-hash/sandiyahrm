@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { LegalDocument } from '@/types';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+ 
 
 export default function LegalDocumentsPage() {
-  const t = useTranslations();
   const [documents, setDocuments] = useState<LegalDocument[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,21 +19,21 @@ export default function LegalDocumentsPage() {
         const response: any = await api.getLegalDocuments();
         setDocuments(Array.isArray(response) ? response : response.data?.results || response.data || []);
       } catch (err) {
-        setError(t('common.error'));
+        setError('Failed to load documents');
         console.error('Error fetching documents:', err);
       } finally {
         setLoading(false);
       }
     };
     fetchDocuments();
-  }, [t]);
+  }, []);
 
   if (loading) return <div className="text-center py-40 text-2xl">Loading...</div>;
 
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
+  <section className="bg-linear-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Legal Documents</h1>
           <p className="text-xl text-blue-100">
@@ -70,7 +69,7 @@ export default function LegalDocumentsPage() {
                           className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
+                        <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-blue-100 to-blue-200">
                           <div className="text-6xl">📄</div>
                         </div>
                       )}
@@ -122,7 +121,7 @@ export default function LegalDocumentsPage() {
           </div>
 
           {/* Document Info Footer */}
-          <div className="bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6 text-white text-center">
+          <div className="bg-linear-to-t from-black/80 to-transparent p-4 md:p-6 text-white text-center">
             {/* <h2 className="text-xl md:text-2xl font-bold">{selectedDocument.title}</h2> */}
             <p className="text-sm md:text-base text-gray-300 mt-2">Legal Document</p>
           </div>
@@ -130,7 +129,7 @@ export default function LegalDocumentsPage() {
       )}
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+  <section className="py-24 px-4 bg-linear-to-r from-blue-900 to-indigo-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Need More Information?</h2>
           <p className="text-xl text-blue-100 mb-10">

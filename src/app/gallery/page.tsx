@@ -1,14 +1,10 @@
 'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { GalleryImage } from '@/types';
 import { getMultilingualText } from '@/lib/utils';
 
 export default function GalleryPage() {
-  const t = useTranslations();
-  const locale = useLocale();
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +17,7 @@ export default function GalleryPage() {
         const response: any = await api.getGallery();
         setImages(Array.isArray(response) ? response : response.data?.results || response.data || []);
       } catch (err) {
-        setError(t('common.error'));
+        setError('Failed to load gallery');
         console.error('Error fetching gallery:', err);
       } finally {
         setLoading(false);
@@ -29,7 +25,7 @@ export default function GalleryPage() {
     };
 
     fetchGallery();
-  }, [t]);
+  }, []);
 
   const filteredImages = images;
 
@@ -43,9 +39,9 @@ export default function GalleryPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white">
+  <main className="min-h-screen bg-linear-to-b from-white via-blue-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
+  <section className="bg-linear-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400 rounded-full filter blur-3xl"></div>
@@ -77,7 +73,7 @@ export default function GalleryPage() {
                   className="group relative overflow-hidden rounded-lg md:rounded-2xl cursor-pointer shadow-md hover:shadow-2xl transition transform hover:scale-105"
                   style={{ animation: `slideInUp 0.5s ease-out ${idx * 0.05}s forwards`, opacity: 0 }}
                 >
-                  <div className="aspect-square bg-gradient-to-br from-blue-200 to-blue-300">
+                  <div className="aspect-square bg-linear-to-br from-blue-200 to-blue-300">
                     <img
                       src={image.image}
                       alt={image.title}

@@ -1,6 +1,4 @@
 'use client';
-
-import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { Achievement } from '@/types';
@@ -23,8 +21,6 @@ const animationStyles = `
 `;
 
 export default function AchievementsPage() {
-  const t = useTranslations();
-  const locale = useLocale();
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +32,7 @@ export default function AchievementsPage() {
         const response: any = await api.getAchievements();
         setAchievements(Array.isArray(response) ? response : response.data?.results || response.data || []);
       } catch (err) {
-        setError(t('common.error'));
+        setError('Failed to load achievements');
         console.error('Error fetching achievements:', err);
       } finally {
         setLoading(false);
@@ -44,7 +40,7 @@ export default function AchievementsPage() {
     };
 
     fetchAchievements();
-  }, [t]);
+  }, []);
 
   if (loading) return (
     <div className="text-center py-20 md:py-40 text-xl md:text-2xl text-slate-600">
@@ -58,10 +54,10 @@ export default function AchievementsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white">
+    <main className="min-h-screen bg-linear-to-b from-white via-blue-50 to-white">
       <style>{animationStyles}</style>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
+  <section className="bg-linear-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-12 md:py-24 px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
         </div>
@@ -91,7 +87,7 @@ export default function AchievementsPage() {
                   className="group relative overflow-hidden rounded-lg md:rounded-2xl cursor-pointer shadow-md hover:shadow-2xl transition transform hover:scale-105"
                   style={{ animation: `slideInUp 0.5s ease-out ${idx * 0.05}s forwards`, opacity: 0 }}
                 >
-                  <div className="aspect-square bg-gradient-to-br from-blue-200 to-blue-300 relative overflow-hidden">
+                  <div className="aspect-square bg-linear-to-br from-blue-200 to-blue-300 relative overflow-hidden">
                     {achievement.image ? (
                       <img
                         src={achievement.image}
@@ -104,13 +100,13 @@ export default function AchievementsPage() {
                         }}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
+                      <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-blue-100 to-blue-200">
                         <div className="text-6xl md:text-7xl">🏆</div>
                       </div>
                     )}
                   </div>
                   {/* Hover overlay with title */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
                     {/* <p className="text-white font-bold text-sm md:text-base line-clamp-2">{achievement.title}</p> */}
                   </div>
                 </div>
